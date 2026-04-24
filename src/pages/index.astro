@@ -118,11 +118,6 @@ const staff: readonly StaffMember[] = [
   {/* ============ HERO ============ */}
   <section class="p-hero">
     <div class="p-hero__bg"></div>
-    <DecorDots class="p-hero__decor p-hero__decor--dots-bl" rows={5} cols={5} />
-    <DecorDots class="p-hero__decor p-hero__decor--dots-tr" rows={4} cols={6} />
-    <span class="p-hero__decor--circle p-hero__decor--circle-1" aria-hidden="true"></span>
-    <span class="p-hero__decor--circle p-hero__decor--circle-2" aria-hidden="true"></span>
-    <span class="p-hero__decor--circle p-hero__decor--circle-3" aria-hidden="true"></span>
 
     <div class="p-hero__inner">
       <div class="p-hero__body fade-in">
@@ -191,25 +186,16 @@ const staff: readonly StaffMember[] = [
           </a>
         </div>
       </div>
+    </div>
 
-      <div class="p-hero__visual fade-in fade-in-delay-2">
-        <Image
-          src={heroImage}
-          alt="所沢さくら動物医療センターで働くスタッフと犬"
-          class="p-hero__visual-img"
-          widths={[480, 720, 960, 1200]}
-          sizes="(max-width: 1023px) 92vw, 620px"
-        />
-        <div class="p-hero__visual-badge" aria-hidden="true">
-          <BrandSakuraMark class="p-hero__visual-badge-icon" />
-          <span class="p-hero__visual-badge-text has-2-xs-font-size" data-layout="-fluid-typography">
-            所沢さくら<br />動物医療センター
-          </span>
-          <span class="p-hero__visual-badge-en">
-            TOKOROZAWA SAKURA<br />ANIMAL MEDICAL
-          </span>
-        </div>
-      </div>
+    <div class="p-hero__media fade-in fade-in-delay-2">
+      <Image
+        src={heroImage}
+        alt="所沢さくら動物医療センターで働くスタッフと犬"
+        class="p-hero__media-img"
+        widths={[640, 960, 1200, 1600, 1920, 2560]}
+        sizes="(max-width: 1023px) 100vw, 50vw"
+      />
     </div>
 
     <svg
@@ -239,6 +225,12 @@ const staff: readonly StaffMember[] = [
         fill="url(#heroWaveGrad2)"
       />
     </svg>
+
+    <DecorDots class="p-hero__decor p-hero__decor--dots-bl" rows={5} cols={5} />
+    <DecorDots class="p-hero__decor p-hero__decor--dots-tr" rows={4} cols={6} />
+    <span class="p-hero__decor--circle p-hero__decor--circle-1" aria-hidden="true"></span>
+    <span class="p-hero__decor--circle p-hero__decor--circle-2" aria-hidden="true"></span>
+    <span class="p-hero__decor--circle p-hero__decor--circle-3" aria-hidden="true"></span>
   </section>
 
   {/* ============ PHILOSOPHY ============ */}
