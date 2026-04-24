@@ -26,9 +26,9 @@ Order deny,allow
   RewriteCond %{HTTP:X-Sakura-Forwarded-For} ^$
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # 正規ホストへリダイレクト（www 付きサブドメイン → recruit.tsamc.jp）
-  RewriteCond %{HTTP_HOST} ^www\.recruit\.tsamc\.jp$ [NC]
-  RewriteRule ^(.*)$ https://recruit.tsamc.jp/$1 [R=301,L]
+  # 正規ホストへリダイレクト（apex → www）
+  RewriteCond %{HTTP_HOST} ^recruit\.tsamc\.jp$ [NC]
+  RewriteRule ^(.*)$ https://www.recruit.tsamc.jp/$1 [R=301,L]
 
   # 末尾スラッシュの正規化（ファイルでない場合のみ）
   RewriteCond %{REQUEST_FILENAME} !-f
