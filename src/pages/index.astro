@@ -1,0 +1,539 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../components/Layout.astro';
+import BrandSakuraMark from '../components/BrandSakuraMark.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import DecorDots from '../components/DecorDots.astro';
+import heroImage from '../assets/img/hero.jpg';
+import directorImage from '../assets/img/director.png';
+import feature1 from '../assets/img/22174283_s.jpg';
+import feature2 from '../assets/img/22191212_s.jpg';
+import feature3 from '../assets/img/23280029_s.jpg';
+import feature4 from '../assets/img/24911717_s.jpg';
+import staff1 from '../assets/img/24282247_s.jpg';
+import staff2 from '../assets/img/23201776_s.jpg';
+import staff3 from '../assets/img/3295314_s.jpg';
+
+interface Philosophy {
+  readonly title: string;
+  readonly body: string;
+  readonly icon: 'heart' | 'people' | 'growth';
+}
+
+interface Feature {
+  readonly title: string;
+  readonly body: string;
+  readonly image: ImageMetadata;
+  readonly iconVariant: 'navy' | 'pink';
+  readonly icon: 'shield' | 'book' | 'paw' | 'smile';
+}
+
+interface StaffMember {
+  readonly role: string;
+  readonly name: string;
+  readonly year: string;
+  readonly body: string;
+  readonly tags: readonly string[];
+  readonly image: ImageMetadata;
+}
+
+const philosophies: readonly Philosophy[] = [
+  {
+    icon: 'heart',
+    title: '思いやりのある医療',
+    body: '動物にも、ご家族にも寄り添い、不安に寄り添いながら最善を尽くす医療を大切にしています。',
+  },
+  {
+    icon: 'people',
+    title: 'チームで支える医療',
+    body: '獣医師・看護師・トリマー・受付まで、互いに尊重しあい、チームで質の高い医療を提供しています。',
+  },
+  {
+    icon: 'growth',
+    title: '学び続け、成長できる環境',
+    body: '勉強会やセミナー、外部研修への参加支援など、スキルアップを応援する体制を整えています。',
+  },
+];
+
+const features: readonly Feature[] = [
+  {
+    icon: 'shield',
+    iconVariant: 'navy',
+    title: '幅広い一次診療に対応',
+    body: '一般診療を中心に、予防医療や慢性疾患にもあたる、地域の動物たちを支えています。',
+    image: feature1,
+  },
+  {
+    icon: 'book',
+    iconVariant: 'pink',
+    title: '充実した学びのサポート',
+    body: '院内勉強会や外部セミナー参加を支援。経験に応じた丁寧な指導で着実に成長できます。',
+    image: feature2,
+  },
+  {
+    icon: 'paw',
+    iconVariant: 'navy',
+    title: '飼い主さまに寄り添う病院',
+    body: 'わかりやすい説明と丁寧な対応で、飼い主さまとの信頼関係を大切にしています。',
+    image: feature3,
+  },
+  {
+    icon: 'smile',
+    iconVariant: 'pink',
+    title: '働きやすい職場環境',
+    body: 'シフトや有給の調整がしやすく、ワークライフバランスを意識した働き方を推進しています。',
+    image: feature4,
+  },
+];
+
+const staff: readonly StaffMember[] = [
+  {
+    role: '獣医師',
+    name: '金子 太樹',
+    year: '入職4年目',
+    body: '先輩たちが常にサポートしてくれるので、安心して学びながら成長できています。',
+    tags: ['チームワーク', '学びの環境'],
+    image: staff1,
+  },
+  {
+    role: '獣医師',
+    name: '櫻井 智仁',
+    year: '入職3年目',
+    body: '症例を通じて学べることが多い環境です。飼い主さまの笑顔が何よりのやりがいです。',
+    tags: ['成長が早い', 'やりがい'],
+    image: staff2,
+  },
+  {
+    role: '獣医師',
+    name: '望月 恭平',
+    year: '入職2年目',
+    body: 'かわいい子たちに囲まれながら、スキルアップを実感できる毎日が楽しいです！',
+    tags: ['動物が好き', 'スキルアップ'],
+    image: staff3,
+  },
+];
+---
+
+<Layout title="">
+  {/* ============ HERO ============ */}
+  <section class="p-hero">
+    <div class="p-hero__bg"></div>
+    <DecorDots class="p-hero__decor p-hero__decor--dots-bl" rows={5} cols={5} />
+    <DecorDots class="p-hero__decor p-hero__decor--dots-tr" rows={4} cols={6} />
+    <span class="p-hero__decor--circle p-hero__decor--circle-1" aria-hidden="true"></span>
+    <span class="p-hero__decor--circle p-hero__decor--circle-2" aria-hidden="true"></span>
+    <span class="p-hero__decor--circle p-hero__decor--circle-3" aria-hidden="true"></span>
+
+    <div class="p-hero__inner">
+      <div class="p-hero__body fade-in">
+        <span class="p-hero__eyebrow" aria-hidden="true">
+          <span class="p-hero__eyebrow-text">Recruitment</span>
+          <BrandSakuraMark class="p-hero__eyebrow-icon" />
+        </span>
+        <h1
+          class="p-hero__title has-4-xl-font-size"
+          data-layout="-fluid-typography"
+        >
+          動物にも、人にも、<br />
+          <span class="p-hero__title-accent">やさしい医療を。</span>
+        </h1>
+        <p class="p-hero__lead has-s-font-size" data-layout="-fluid-typography">
+          大切なご家族に寄り添い、家族の笑顔を支える。<br />
+          私たちと一緒に、地域に信頼される動物病院をつくりませんか？
+        </p>
+
+        <dl class="p-hero__tags">
+          <div class="p-hero__tags-row">
+            <dt class="p-hero__tags-label has-2-xs-font-size" data-layout="-fluid-typography">
+              診療科目
+            </dt>
+            <dd class="p-hero__tags-items">
+              <span class="p-hero__tag has-2-xs-font-size" data-layout="-fluid-typography">一般診療</span>
+              <span class="p-hero__tag has-2-xs-font-size" data-layout="-fluid-typography">歯科</span>
+              <span class="p-hero__tag has-2-xs-font-size" data-layout="-fluid-typography">目科</span>
+            </dd>
+          </div>
+          <div class="p-hero__tags-row">
+            <dt class="p-hero__tags-label has-2-xs-font-size" data-layout="-fluid-typography">
+              募集職種
+            </dt>
+            <dd class="p-hero__tags-items">
+              <span class="p-hero__tag has-2-xs-font-size" data-layout="-fluid-typography">獣医師</span>
+              <span class="p-hero__tag has-2-xs-font-size" data-layout="-fluid-typography">トリマー</span>
+              <span class="p-hero__tag has-2-xs-font-size" data-layout="-fluid-typography">受付スタッフ</span>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="p-hero__actions">
+          <a class="c-btn c-btn--navy has-s-font-size" data-layout="-fluid-typography" href="/recruitment">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <span>募集要項を見る</span>
+            <span class="c-btn__arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </a>
+          <a class="c-btn c-btn--pink has-s-font-size" data-layout="-fluid-typography" href="/form">
+            <BrandSakuraMark />
+            <span>院内を見学してみる</span>
+            <span class="c-btn__arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="p-hero__visual fade-in fade-in-delay-2">
+        <Image
+          src={heroImage}
+          alt="所沢さくら動物医療センターで働くスタッフと犬"
+          class="p-hero__visual-img"
+          widths={[480, 720, 960, 1200]}
+          sizes="(max-width: 1023px) 92vw, 620px"
+        />
+        <div class="p-hero__visual-badge" aria-hidden="true">
+          <BrandSakuraMark class="p-hero__visual-badge-icon" />
+          <span class="p-hero__visual-badge-text has-2-xs-font-size" data-layout="-fluid-typography">
+            所沢さくら<br />動物医療センター
+          </span>
+          <span class="p-hero__visual-badge-en">
+            TOKOROZAWA SAKURA<br />ANIMAL MEDICAL
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <svg
+      class="p-hero__wave"
+      viewBox="0 0 1440 220"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="heroWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#c9d3ea" stop-opacity="0.55" />
+          <stop offset="55%" stop-color="#e7d2de" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="#f6c6d0" stop-opacity="0.7" />
+        </linearGradient>
+        <linearGradient id="heroWaveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#f9d5de" stop-opacity="0.85" />
+          <stop offset="100%" stop-color="#f2a3b0" stop-opacity="0.85" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M0,140 C240,40 520,200 780,120 C1020,50 1240,170 1440,110 L1440,220 L0,220 Z"
+        fill="url(#heroWaveGrad)"
+      />
+      <path
+        d="M0,180 C260,110 520,210 820,160 C1080,120 1260,200 1440,170 L1440,220 L0,220 Z"
+        fill="url(#heroWaveGrad2)"
+      />
+    </svg>
+  </section>
+
+  {/* ============ PHILOSOPHY ============ */}
+  <section class="p-philosophy">
+    <div class="p-philosophy__container">
+      <SectionHeading label="Philosophy" title="理念・強み" class="fade-in" />
+      <div class="p-philosophy__grid">
+        {
+          philosophies.map((p, i) => (
+            <div class={`p-philosophy__card fade-in fade-in-delay-${i + 1}`}>
+              <div class="p-philosophy__card-icon">
+                {p.icon === 'heart' && (
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 21s-7.5-4.5-10-9.5C.5 7.5 3 3 7.5 3c2 0 3.5 1 4.5 2.5C13 4 14.5 3 16.5 3 21 3 23.5 7.5 22 11.5 19.5 16.5 12 21 12 21z" />
+                  </svg>
+                )}
+                {p.icon === 'people' && (
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <circle cx="9" cy="8" r="3" />
+                    <circle cx="17" cy="9" r="2.5" />
+                    <path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6" />
+                    <path d="M15.5 20c0-2.8 2-5 5-5 .9 0 1.7.2 2.5.6" fill="none" stroke="currentColor" stroke-width="1.8" />
+                  </svg>
+                )}
+                {p.icon === 'growth' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="3 17 9 11 13 15 21 7" />
+                    <polyline points="15 7 21 7 21 13" />
+                  </svg>
+                )}
+              </div>
+              <h3
+                class="p-philosophy__card-title has-l-font-size"
+                data-layout="-fluid-typography"
+              >
+                {p.title}
+              </h3>
+              <p
+                class="p-philosophy__card-body has-xs-font-size"
+                data-layout="-fluid-typography"
+              >
+                {p.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ============ DIRECTOR ============ */}
+  <section class="p-director">
+    <span class="p-director__decor p-director__decor--orb-1" aria-hidden="true"></span>
+    <span class="p-director__decor p-director__decor--orb-2" aria-hidden="true"></span>
+    <span class="p-director__decor p-director__decor--orb-3" aria-hidden="true"></span>
+    <DecorDots class="p-director__decor p-director__decor--dots-tl" rows={4} cols={5} />
+    <DecorDots class="p-director__decor p-director__decor--dots-br" rows={4} cols={5} />
+
+    <div class="p-director__container">
+      <div class="p-director__photo fade-in">
+        <span class="p-director__photo-ring" aria-hidden="true"></span>
+        <Image
+          src={directorImage}
+          alt="所沢さくら動物医療センター 院長"
+          class="p-director__photo-img"
+          widths={[360, 540, 720, 900]}
+          sizes="(max-width: 767px) 72vw, 360px"
+        />
+      </div>
+      <div class="p-director__body fade-in fade-in-delay-2">
+        <div class="p-director__heading">
+          <span class="p-director__heading-icon" aria-hidden="true"></span>
+          <h2
+            class="p-director__heading-title has-2-xl-font-size"
+            data-layout="-fluid-typography"
+          >
+            院長メッセージ
+          </h2>
+        </div>
+        <p class="p-director__text has-xs-font-size" data-layout="-fluid-typography">
+          当院は「動物にも、人にも、やさしい医療を。」を理念に、地域のホームドクターとして歩んでまいりました。動物たちは言葉を話しません。だからこそ、私たちが丁寧に観察し、寄り添うことが大切です。<br />
+          また、スタッフ一人ひとりがやりがいを持って働き、成長できる環境であってほしい。そんな想いが実現する職場をつくってきました。チームワークを大切にし、支え合いながら一緒に未来をつくっていきましょう。
+        </p>
+        <div class="p-director__sign">
+          <span class="p-director__sign-affiliation has-2-xs-font-size" data-layout="-fluid-typography">
+            所沢さくら動物医療センター 院長
+          </span>
+          <span class="p-director__sign-name u-font-mincho has-l-font-size" data-layout="-fluid-typography">
+            岸 文也
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ============ FEATURES ============ */}
+  <section class="p-feature">
+    <div class="p-feature__container">
+      <SectionHeading label="Feature" title="病院の特徴" class="fade-in" />
+      <div class="p-feature__grid">
+        {
+          features.map((f, i) => (
+            <article class={`p-feature__card fade-in fade-in-delay-${i + 1}`}>
+              <div class="p-feature__card-visual">
+                <Image
+                  src={f.image}
+                  alt={f.title}
+                  widths={[240, 360, 480]}
+                  sizes="(max-width: 1023px) 45vw, 22vw"
+                />
+                <span class={`p-feature__card-icon p-feature__card-icon--${f.iconVariant}`}>
+                  {f.icon === 'shield' && (
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2 3 6v6c0 5 3.9 9.5 9 10 5.1-.5 9-5 9-10V6l-9-4z" />
+                    </svg>
+                  )}
+                  {f.icon === 'book' && (
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M4 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H4z" />
+                      <path d="M20 3h-3a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h4z" />
+                    </svg>
+                  )}
+                  {f.icon === 'paw' && (
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <circle cx="6" cy="8" r="2.2" />
+                      <circle cx="10.5" cy="5" r="2.2" />
+                      <circle cx="15.5" cy="5" r="2.2" />
+                      <circle cx="20" cy="8" r="2.2" />
+                      <path d="M13 10c-3 0-7 3-7 6.5 0 2 1.6 3 3.5 3 1.3 0 2-.6 3.5-.6s2.2.6 3.5.6c1.9 0 3.5-1 3.5-3C20 13 16 10 13 10z" />
+                    </svg>
+                  )}
+                  {f.icon === 'smile' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                      <line x1="9" y1="10" x2="9.01" y2="10" />
+                      <line x1="15" y1="10" x2="15.01" y2="10" />
+                    </svg>
+                  )}
+                </span>
+              </div>
+              <h3
+                class="p-feature__card-title has-m-font-size"
+                data-layout="-fluid-typography"
+              >
+                {f.title}
+              </h3>
+              <p
+                class="p-feature__card-body has-2-xs-font-size"
+                data-layout="-fluid-typography"
+              >
+                {f.body}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ============ STAFF ============ */}
+  <section class="p-staff">
+    <span class="p-staff__decor-dot p-staff__decor-dot--1" aria-hidden="true"></span>
+    <span class="p-staff__decor-dot p-staff__decor-dot--2" aria-hidden="true"></span>
+    <span class="p-staff__decor-dot p-staff__decor-dot--3" aria-hidden="true"></span>
+    <span class="p-staff__decor-dot p-staff__decor-dot--4" aria-hidden="true"></span>
+    <span class="p-staff__decor-dot p-staff__decor-dot--5" aria-hidden="true"></span>
+    <span class="p-staff__decor-dot p-staff__decor-dot--6" aria-hidden="true"></span>
+    <svg
+      class="p-staff__decor p-staff__decor--wave"
+      viewBox="0 0 64 72"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 18 Q16 4 32 18 T64 18"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M0 36 Q16 22 32 36 T64 36"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M0 54 Q16 40 32 54 T64 54"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+    <span class="p-staff__decor p-staff__decor--tri p-staff__decor--tri-1" aria-hidden="true"></span>
+    <span class="p-staff__decor p-staff__decor--tri p-staff__decor--tri-2" aria-hidden="true"></span>
+    <div class="p-staff__container">
+      <SectionHeading label="Staff" title="スタッフ紹介" class="fade-in" />
+      <div class="p-staff__grid">
+        {
+          staff.map((s, i) => (
+            <article class={`p-staff__card fade-in fade-in-delay-${i + 1}`}>
+              <div class="p-staff__card-visual">
+                <Image
+                  src={s.image}
+                  alt={`${s.role} ${s.name}`}
+                  widths={[300, 480, 640]}
+                  sizes="(max-width: 767px) 92vw, 32vw"
+                />
+              </div>
+              <span
+                class="p-staff__card-role has-xs-font-size"
+                data-layout="-fluid-typography"
+              >
+                <BrandSakuraMark />
+                {s.role}
+              </span>
+              <h3
+                class="p-staff__card-name has-l-font-size"
+                data-layout="-fluid-typography"
+              >
+                {s.name}
+                <span class="p-staff__card-year has-2-xs-font-size" data-layout="-fluid-typography">
+                  （{s.year}）
+                </span>
+              </h3>
+              <p
+                class="p-staff__card-body has-2-xs-font-size"
+                data-layout="-fluid-typography"
+              >
+                {s.body}
+              </p>
+              <div class="p-staff__card-tags">
+                {
+                  s.tags.map((tag) => (
+                    <span
+                      class="p-staff__card-tag has-2-xs-font-size"
+                      data-layout="-fluid-typography"
+                    >
+                      #{tag}
+                    </span>
+                  ))
+                }
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ============ CTA ============ */}
+  <section class="p-cta">
+    <div class="c-container">
+    <div class="p-cta__inner fade-in">
+      <DecorDots class="p-cta__decor p-cta__decor--dots" rows={3} cols={4} />
+      <span class="p-cta__decor p-cta__decor--paw p-cta__decor--paw-1" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="6" cy="8" r="2.2" />
+          <circle cx="10.5" cy="5" r="2.2" />
+          <circle cx="15.5" cy="5" r="2.2" />
+          <circle cx="20" cy="8" r="2.2" />
+          <path d="M13 10c-3 0-7 3-7 6.5 0 2 1.6 3 3.5 3 1.3 0 2-.6 3.5-.6s2.2.6 3.5.6c1.9 0 3.5-1 3.5-3C20 13 16 10 13 10z" />
+        </svg>
+      </span>
+      <span class="p-cta__decor p-cta__decor--paw p-cta__decor--paw-2" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="6" cy="8" r="2.2" />
+          <circle cx="10.5" cy="5" r="2.2" />
+          <circle cx="15.5" cy="5" r="2.2" />
+          <circle cx="20" cy="8" r="2.2" />
+          <path d="M13 10c-3 0-7 3-7 6.5 0 2 1.6 3 3.5 3 1.3 0 2-.6 3.5-.6s2.2.6 3.5.6c1.9 0 3.5-1 3.5-3C20 13 16 10 13 10z" />
+        </svg>
+      </span>
+
+      <div class="p-cta__body">
+        <p class="p-cta__handwriting" aria-hidden="true">一緒にはたらきませんか？</p>
+        <p class="p-cta__lead has-m-font-size" data-layout="-fluid-typography">
+          所沢さくら動物医療センターで、あなたの力を活かしませんか？<br />
+          エントリーや見学のお申し込みをお待ちしています。
+        </p>
+      </div>
+
+      <div class="p-cta__actions">
+        <a class="c-btn c-cta-btn has-s-font-size" data-layout="-fluid-typography" href="/form">
+          <span>エントリーする</span>
+          <span class="c-cta-btn__arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,169 @@
+/* Modern CSS Reset */
+/* Based on modern web standards and best practices */
+
+/* === Box Model Reset === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Hidden Elements === */
+:where([hidden]:not([hidden="until-found"])) {
+  display: none !important;
+}
+
+/* === Root HTML Configuration === */
+:where(html) {
+  /* Prevent automatic text size adjustments on mobile */
+  -webkit-text-size-adjust: none;
+
+  /* Support both dark and light color schemes */
+  color-scheme: dark light;
+
+  /* Set tab size for better code display */
+  tab-size: 2;
+
+  /* Stable scrollbar to prevent layout shifts */
+  scrollbar-gutter: stable;
+
+  /* Allow smooth size interpolation */
+  interpolate-size: allow-keywords;
+
+  /* Set base line height */
+  line-height: 1.5;
+}
+
+/* === Modal Dialog Overflow Fix === */
+:where(html:has(dialog:modal[open])) {
+  overflow: clip;
+}
+
+/* === Smooth Scrolling (respecting user preferences) === */
+@media (prefers-reduced-motion: no-preference) {
+  :where(html:focus-within) {
+    scroll-behavior: smooth;
+  }
+}
+
+/* === Body Configuration === */
+:where(body) {
+  line-height: inherit;
+  font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Button Reset === */
+:where(button) {
+  all: unset;
+}
+
+/* === Form Elements === */
+:where(input, button, textarea, select) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+}
+
+/* === Textarea Resize === */
+:where(textarea) {
+  resize: vertical;
+  resize: block;
+}
+
+/* === Interactive Elements Cursor === */
+:where(button, label, select, summary, [role="button"], [role="option"]) {
+  cursor: pointer;
+}
+
+/* === Disabled Elements Cursor === */
+:where(:disabled, label:has(> :disabled, + :disabled)) {
+  cursor: not-allowed;
+}
+
+/* === Link Styling === */
+:where(a) {
+  color: inherit;
+  text-underline-offset: 0.2ex;
+}
+
+/* === List Reset === */
+:where(ul, ol) {
+  list-style: none;
+}
+
+/* === Media Elements === */
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+}
+
+/* === Responsive Media === */
+:where(img, picture, svg, video) {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* === Text Elements === */
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+}
+
+/* === Heading Improvements === */
+:where(h1, h2, h3) {
+  line-height: calc(1em + 0.5rem);
+  text-wrap: balance;
+}
+
+/* === Horizontal Rule === */
+:where(hr) {
+  border: none;
+  border-block-start: 1px solid;
+  color: inherit;
+  block-size: 0;
+  overflow: visible;
+}
+
+/* === Dialog and Popover Reset === */
+:where(dialog, [popover]) {
+  border: none;
+  background: none;
+  color: inherit;
+  inset: unset;
+  max-width: unset;
+  max-height: unset;
+  overflow: unset;
+}
+
+/* === Hidden Dialog/Popover === */
+:where(dialog:not([open], [popover]), [popover]:not(:popover-open)) {
+  display: none !important;
+}
+
+/* === Focus Visible Styling === */
+:where(:focus-visible) {
+  outline: 3px solid CanvasText;
+  box-shadow: 0 0 0 5px Canvas;
+  outline-offset: 1px;
+}
+
+/* === Focus and Target Scroll Margin === */
+:where(:focus-visible, :target) {
+  scroll-margin-block: 8vh;
+}
+
+/* === Visually Hidden Utility === */
+:where(.visually-hidden:not(:focus-within, :active)) {
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  user-select: none !important;
+}

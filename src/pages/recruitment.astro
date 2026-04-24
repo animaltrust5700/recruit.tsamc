@@ -1,0 +1,117 @@
+---
+import Layout from '../components/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+interface Position {
+  readonly badge: string;
+  readonly title: string;
+  readonly rows: readonly {
+    readonly label: string;
+    readonly value: string;
+  }[];
+}
+
+const positions: readonly Position[] = [
+  {
+    badge: '正社員',
+    title: '獣医師',
+    rows: [
+      { label: '応募資格', value: '獣医師免許取得者 / 新卒・既卒・経験者すべて歓迎' },
+      { label: '雇用形態', value: '正社員（試用期間3ヶ月 / 条件変更なし）' },
+      { label: '勤務時間', value: '9:00〜19:00（実働8時間 / 休憩含む）シフト制' },
+      { label: '給与', value: '月給 30万円〜（経験・能力に応じて決定）' },
+      { label: '休日・休暇', value: '週休2日 / 夏季・冬季休暇 / 有給休暇' },
+      { label: '待遇', value: '社会保険完備 / 交通費支給 / セミナー参加費補助 / 昇給・賞与あり' },
+    ],
+  },
+  {
+    badge: '正社員 / パート',
+    title: '動物看護師',
+    rows: [
+      { label: '応募資格', value: '動物看護師（愛玩動物看護師優遇） / 実務未経験可' },
+      { label: '雇用形態', value: '正社員 / パート（勤務日数・時間応相談）' },
+      { label: '勤務時間', value: '9:00〜19:00 シフト制（パートは応相談）' },
+      { label: '給与', value: '月給 22万円〜 / パート 時給 1,200円〜' },
+      { label: '休日・休暇', value: '週休2日 / 夏季・冬季休暇 / 有給休暇' },
+      { label: '待遇', value: '社会保険完備 / 交通費支給 / 研修制度 / 昇給あり' },
+    ],
+  },
+  {
+    badge: '正社員 / パート',
+    title: 'トリマー',
+    rows: [
+      { label: '応募資格', value: 'トリマー専門学校卒業、もしくは実務経験のある方歓迎' },
+      { label: '雇用形態', value: '正社員 / パート' },
+      { label: '勤務時間', value: '9:00〜18:00 シフト制' },
+      { label: '給与', value: '月給 21万円〜 / パート 時給 1,100円〜' },
+      { label: '休日・休暇', value: '週休2日 / 夏季・冬季休暇 / 有給休暇' },
+      { label: '待遇', value: '社会保険完備 / 交通費支給 / 技術研修制度' },
+    ],
+  },
+];
+---
+
+<Layout title="募集要項" description="所沢さくら動物医療センターの募集職種と採用条件をご紹介します。">
+  <section class="p-page-hero">
+    <div class="p-page-hero__inner">
+      <span class="p-page-hero__en has-xs-font-size" data-layout="-fluid-typography">Recruitment</span>
+      <h1 class="p-page-hero__title has-3-xl-font-size" data-layout="-fluid-typography">
+        募集要項
+      </h1>
+    </div>
+  </section>
+
+  <section class="p-page-body">
+    <div class="p-page-body__container">
+      <div class="c-stack" data-gap="5">
+        <div class="c-stack fade-in" data-gap="2">
+          <SectionHeading label="Position" title="募集職種" />
+          <p class="u-text-center has-xs-font-size" data-layout="-fluid-typography">
+            現在、以下の職種で新しい仲間を募集しています。<br />
+            少しでも気になった方は、ぜひお気軽にご見学ください。
+          </p>
+        </div>
+
+        <div class="p-recruit-list">
+          {
+            positions.map((pos, i) => (
+              <article class={`p-recruit-card fade-in fade-in-delay-${(i % 3) + 1}`}>
+                <div class="p-recruit-card__header">
+                  <span class="p-recruit-card__badge has-2-xs-font-size" data-layout="-fluid-typography">
+                    {pos.badge}
+                  </span>
+                  <h2 class="p-recruit-card__title has-xl-font-size" data-layout="-fluid-typography">
+                    {pos.title}
+                  </h2>
+                </div>
+                <table class="p-info-table has-xs-font-size" data-layout="-fluid-typography">
+                  <tbody>
+                    {
+                      pos.rows.map((row) => (
+                        <tr>
+                          <th>{row.label}</th>
+                          <td>{row.value}</td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="u-text-center fade-in">
+          <a class="c-btn c-btn--pink has-s-font-size" data-layout="-fluid-typography" href="/form">
+            <span>見学を申し込む</span>
+            <span class="c-btn__arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

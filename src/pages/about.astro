@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../components/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import BrandSakuraMark from '../components/BrandSakuraMark.astro';
+import hospitalImage from '../assets/img/22191212_s.jpg';
+---
+
+<Layout title="当院について" description="所沢さくら動物医療センターは、埼玉県所沢市で地域のホームドクターとして、動物にも人にもやさしい医療を提供しています。">
+  <section class="p-page-hero">
+    <div class="p-page-hero__inner">
+      <span class="p-page-hero__en has-xs-font-size" data-layout="-fluid-typography">
+        About
+      </span>
+      <h1 class="p-page-hero__title has-3-xl-font-size" data-layout="-fluid-typography">
+        当院について
+      </h1>
+    </div>
+  </section>
+
+  <section class="p-page-body">
+    <div class="p-page-body__container">
+      <div class="c-stack" data-gap="5">
+        <div class="fade-in">
+          <Image
+            src={hospitalImage}
+            alt="所沢さくら動物医療センター 院内"
+            widths={[640, 960, 1280]}
+            sizes="(max-width: 960px) 92vw, 960px"
+            style="border-radius:24px; box-shadow: 0 18px 38px rgba(74, 96, 134, 0.12);"
+          />
+        </div>
+
+        <div class="c-stack fade-in" data-gap="2">
+          <SectionHeading label="Philosophy" title="私たちの理念" />
+          <p class="has-xs-font-size" data-layout="-fluid-typography">
+            「動物にも、人にも、やさしい医療を。」<br />
+            私たちは、動物たちと、そのご家族、そして共に働くスタッフ、すべての"人"にとってやさしい医療を目指しています。
+            所沢の地域で、信頼されるホームドクターとして歩み続けてきました。
+          </p>
+        </div>
+
+        <div class="c-stack fade-in fade-in-delay-1" data-gap="2">
+          <SectionHeading label="Overview" title="病院概要" />
+          <table class="p-info-table has-xs-font-size" data-layout="-fluid-typography">
+            <tbody>
+              <tr>
+                <th>病院名</th>
+                <td>所沢さくら動物医療センター</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>〒359-1125 埼玉県所沢市南住吉21-46</td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td><a href="tel:0429979031" class="u-text-accent">04-2997-9031</a></td>
+              </tr>
+              <tr>
+                <th>診療科目</th>
+                <td>犬・猫・小動物の一次診療 / 予防医療 / 歯科 / 外科 / 内科</td>
+              </tr>
+              <tr>
+                <th>設備</th>
+                <td>レントゲン / 超音波検査 / 血液検査機器 / 麻酔管理モニター</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="c-stack fade-in fade-in-delay-2" data-gap="2">
+          <SectionHeading label="Value" title="私たちの大切にしていること" />
+          <div class="c-grid c-grid_col3" data-gap="3">
+            <div class="p-philosophy__card">
+              <div class="p-philosophy__card-icon">
+                <BrandSakuraMark />
+              </div>
+              <h3 class="p-philosophy__card-title has-m-font-size" data-layout="-fluid-typography">
+                寄り添う心
+              </h3>
+              <p class="p-philosophy__card-body has-2-xs-font-size" data-layout="-fluid-typography">
+                動物とご家族の気持ちを大切に、不安に寄り添う医療を。
+              </p>
+            </div>
+            <div class="p-philosophy__card">
+              <div class="p-philosophy__card-icon">
+                <BrandSakuraMark />
+              </div>
+              <h3 class="p-philosophy__card-title has-m-font-size" data-layout="-fluid-typography">
+                チーム医療
+              </h3>
+              <p class="p-philosophy__card-body has-2-xs-font-size" data-layout="-fluid-typography">
+                お互いを尊重し、強みを持ち寄って、質の高い医療を届けます。
+              </p>
+            </div>
+            <div class="p-philosophy__card">
+              <div class="p-philosophy__card-icon">
+                <BrandSakuraMark />
+              </div>
+              <h3 class="p-philosophy__card-title has-m-font-size" data-layout="-fluid-typography">
+                学びの継続
+              </h3>
+              <p class="p-philosophy__card-body has-2-xs-font-size" data-layout="-fluid-typography">
+                変化し続ける獣医療。学び続ける姿勢がチームの力になります。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

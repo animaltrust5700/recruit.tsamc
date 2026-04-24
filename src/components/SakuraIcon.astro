@@ -1,0 +1,39 @@
+---
+interface Props {
+  readonly class?: string;
+  readonly width?: string | number;
+  readonly height?: string | number;
+}
+
+const { class: className, width, height } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  fill="currentColor"
+  aria-hidden="true"
+  class={className}
+  width={width}
+  height={height}
+>
+  <g transform="translate(50 50)">
+    {
+      [0, 72, 144, 216, 288].map((rotation) => (
+        <path
+          transform={`rotate(${rotation})`}
+          d="M 0 -6 C -14 -18 -20 -38 -4 -44 C 4 -46 12 -42 10 -32 C 20 -36 30 -28 24 -18 C 20 -10 10 -6 0 -6 Z"
+          opacity="0.92"
+        />
+      ))
+    }
+    <circle r="5" fill="#fff3a5" opacity="0.95" />
+    <g fill="#fff3a5" opacity="0.9">
+      {
+        [0, 72, 144, 216, 288].map((rotation) => (
+          <circle transform={`rotate(${rotation}) translate(0 -12)`} r="1.5" />
+        ))
+      }
+    </g>
+  </g>
+</svg>

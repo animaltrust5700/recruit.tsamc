@@ -1,0 +1,21 @@
+---
+import { assetUrl } from '../lib/assets';
+
+interface Props {
+  readonly class?: string;
+  readonly width?: string | number;
+  readonly height?: string | number;
+}
+
+const { class: className, width, height } = Astro.props;
+---
+
+<img
+  class={className}
+  src={assetUrl('/logo-only.svg')}
+  width={width}
+  height={height}
+  alt=""
+  aria-hidden="true"
+  decoding="async"
+/>

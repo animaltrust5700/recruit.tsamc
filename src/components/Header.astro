@@ -1,0 +1,71 @@
+---
+import BrandSakuraMark from './BrandSakuraMark.astro';
+import { MobileMenu } from './MobileMenu.tsx';
+import { assetUrl } from '../lib/assets';
+
+interface NavItem {
+  readonly href: string;
+  readonly label: string;
+}
+
+const navItems: readonly NavItem[] = [
+  { href: '/', label: 'ホーム' },
+  { href: '/about', label: '当院について' },
+  { href: '/work', label: '仕事内容' },
+  { href: '/career', label: '教育・キャリア' },
+  { href: '/recruitment', label: '募集要項' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="p-header">
+  <div class="p-header__inner">
+    <a href="/" class="p-header__logo" aria-label="所沢さくら動物医療センター 採用サイト">
+      <img
+        class="p-header__logo-img"
+        src={assetUrl('/logo-horizontal.svg')}
+        width="386"
+        height="60"
+        alt=""
+        decoding="async"
+      />
+    </a>
+    <nav class="p-header__nav" aria-label="グローバルナビゲーション">
+      <ul class="p-header__nav-list">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                class:list={[
+                  'p-header__nav-link',
+                  'has-xs-font-size',
+                  { 'is-current': currentPath === item.href },
+                ]}
+                data-layout="-fluid-typography"
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a
+        class="c-btn c-btn--pink p-header__cta has-xs-font-size"
+        data-layout="-fluid-typography"
+        href="/form"
+        title="見学を申し込む"
+      >
+        <span class="p-header__cta-txt p-header__cta-txt--full">見学を申し込む</span>
+        <span class="p-header__cta-txt p-header__cta-txt--sm" aria-hidden="true">見学</span>
+      </a>
+      <MobileMenu
+        client:load
+        items={navItems}
+        ctaHref="/form"
+        ctaLabel="見学を申し込む"
+      />
+    </nav>
+  </div>
+</header>

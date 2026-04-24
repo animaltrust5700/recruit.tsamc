@@ -1,0 +1,86 @@
+---
+import Layout from '../components/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<Layout title="見学を申し込む" description="所沢さくら動物医療センターの見学申し込みフォームです。お気軽にお申し込みください。">
+  <section class="p-page-hero">
+    <div class="p-page-hero__inner">
+      <span class="p-page-hero__en has-xs-font-size" data-layout="-fluid-typography">Apply</span>
+      <h1 class="p-page-hero__title has-3-xl-font-size" data-layout="-fluid-typography">
+        見学を申し込む
+      </h1>
+    </div>
+  </section>
+
+  <section class="p-page-body">
+    <div class="p-page-body__container">
+      <div class="c-stack" data-gap="4">
+        <div class="c-stack fade-in" data-gap="2">
+          <SectionHeading label="Form" title="お申し込みフォーム" />
+          <p class="u-text-center has-xs-font-size" data-layout="-fluid-typography">
+            以下のフォームに必要事項をご入力のうえ、送信してください。<br />
+            担当者より2営業日以内にご連絡いたします。
+          </p>
+        </div>
+
+        <form class="p-form fade-in" method="post" action="#">
+          <div class="p-form__row">
+            <label class="p-form__label" for="f-name">
+              お名前
+              <span class="p-form__required">必須</span>
+            </label>
+            <input id="f-name" class="p-form__input" type="text" name="name" required placeholder="山田 太郎" />
+          </div>
+          <div class="p-form__row">
+            <label class="p-form__label" for="f-kana">
+              フリガナ
+              <span class="p-form__required">必須</span>
+            </label>
+            <input id="f-kana" class="p-form__input" type="text" name="kana" required placeholder="ヤマダ タロウ" />
+          </div>
+          <div class="p-form__row">
+            <label class="p-form__label" for="f-email">
+              メールアドレス
+              <span class="p-form__required">必須</span>
+            </label>
+            <input id="f-email" class="p-form__input" type="email" name="email" required placeholder="example@example.com" />
+          </div>
+          <div class="p-form__row">
+            <label class="p-form__label" for="f-phone">電話番号</label>
+            <input id="f-phone" class="p-form__input" type="tel" name="phone" placeholder="090-0000-0000" />
+          </div>
+          <div class="p-form__row">
+            <label class="p-form__label" for="f-position">
+              希望職種
+              <span class="p-form__required">必須</span>
+            </label>
+            <select id="f-position" class="p-form__select" name="position" required>
+              <option value="">選択してください</option>
+              <option value="veterinarian">獣医師</option>
+              <option value="nurse">動物看護師</option>
+              <option value="trimmer">トリマー</option>
+              <option value="other">その他 / 相談したい</option>
+            </select>
+          </div>
+          <div class="p-form__row">
+            <label class="p-form__label" for="f-message">
+              ご質問・ご希望日時
+            </label>
+            <textarea id="f-message" class="p-form__textarea" name="message" placeholder="見学希望日や気になる点などお書きください"></textarea>
+          </div>
+          <div class="p-form__submit">
+            <button type="submit" class="c-btn c-btn--pink has-s-font-size" data-layout="-fluid-typography">
+              <span>送信する</span>
+              <span class="c-btn__arrow">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,97 @@
+---
+import Layout from '../components/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+interface Job {
+  readonly title: string;
+  readonly lead: string;
+  readonly tasks: readonly string[];
+  readonly icon: 'stethoscope' | 'heart' | 'scissors';
+}
+
+const jobs: readonly Job[] = [
+  {
+    icon: 'stethoscope',
+    title: '獣医師',
+    lead: '一次診療を中心に、予防医療から外科・内科まで幅広く経験できます。',
+    tasks: ['外来診療・予防医療', '血液検査・画像診断', '外科処置 / 歯科処置', '飼い主さまへのご説明'],
+  },
+  {
+    icon: 'heart',
+    title: '動物看護師',
+    lead: '獣医師のサポートと、飼い主さま対応を通じて動物たちを支えるお仕事です。',
+    tasks: ['診療補助（保定・採血補助等）', '入院動物のケア', '受付・問診・会計', '院内清掃・器具消毒'],
+  },
+  {
+    icon: 'scissors',
+    title: 'トリマー',
+    lead: '動物の状態に配慮し、安心できるサロン体験を提供します。',
+    tasks: ['シャンプー / カット / 爪切り', '皮膚状態の観察とご報告', '衛生管理', '飼い主さまへのケアアドバイス'],
+  },
+];
+---
+
+<Layout title="仕事内容" description="所沢さくら動物医療センターの獣医師・動物看護師・トリマーの仕事内容をご紹介します。">
+  <section class="p-page-hero">
+    <div class="p-page-hero__inner">
+      <span class="p-page-hero__en has-xs-font-size" data-layout="-fluid-typography">Work</span>
+      <h1 class="p-page-hero__title has-3-xl-font-size" data-layout="-fluid-typography">
+        仕事内容
+      </h1>
+    </div>
+  </section>
+
+  <section class="p-page-body">
+    <div class="p-page-body__container">
+      <div class="c-stack" data-gap="5">
+        <div class="c-stack fade-in" data-gap="2">
+          <SectionHeading label="Jobs" title="職種紹介" />
+          <p class="u-text-center has-xs-font-size" data-layout="-fluid-typography">
+            当院では、獣医師・動物看護師・トリマーの各スタッフがそれぞれの専門性を活かし、チームで動物と飼い主さまに向き合っています。
+          </p>
+        </div>
+
+        <div class="p-job-grid">
+          {
+            jobs.map((job, i) => (
+              <article class={`p-job-card fade-in fade-in-delay-${i + 1}`}>
+                <div class="p-job-card__icon">
+                  {job.icon === 'stethoscope' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 3v7a5 5 0 0 0 10 0V3" />
+                      <path d="M14 14v3a4 4 0 0 0 8 0" />
+                      <circle cx="18" cy="7" r="2" />
+                    </svg>
+                  )}
+                  {job.icon === 'heart' && (
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 21s-7.5-4.5-10-9.5C.5 7.5 3 3 7.5 3c2 0 3.5 1 4.5 2.5C13 4 14.5 3 16.5 3 21 3 23.5 7.5 22 11.5 19.5 16.5 12 21 12 21z" />
+                    </svg>
+                  )}
+                  {job.icon === 'scissors' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="6" cy="6" r="3" />
+                      <circle cx="6" cy="18" r="3" />
+                      <line x1="20" y1="4" x2="8.12" y2="15.88" />
+                      <line x1="14.47" y1="14.48" x2="20" y2="20" />
+                      <line x1="8.12" y1="8.12" x2="12" y2="12" />
+                    </svg>
+                  )}
+                </div>
+                <h2 class="p-job-card__title has-xl-font-size" data-layout="-fluid-typography">
+                  {job.title}
+                </h2>
+                <p class="p-job-card__body has-xs-font-size" data-layout="-fluid-typography">
+                  {job.lead}
+                </p>
+                <ul class="p-job-card__list has-xs-font-size" data-layout="-fluid-typography">
+                  {job.tasks.map((task) => <li>{task}</li>)}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

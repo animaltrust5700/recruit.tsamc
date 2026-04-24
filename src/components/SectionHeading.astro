@@ -1,0 +1,25 @@
+---
+interface Props {
+  readonly label: string;
+  readonly title: string;
+  readonly titleClass?: string;
+  readonly class?: string;
+}
+
+const { label, title, titleClass, class: className } = Astro.props;
+---
+
+<div class:list={['c-section-heading', className]}>
+  <span class="c-section-heading__label has-xs-font-size" data-layout="-fluid-typography">
+    {label}
+  </span>
+  <h2
+    class:list={[
+      'c-section-heading__title',
+      titleClass ?? 'has-2-xl-font-size',
+    ]}
+    data-layout="-fluid-typography"
+  >
+    {title}
+  </h2>
+</div>

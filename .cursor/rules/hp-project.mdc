@@ -1,0 +1,121 @@
+---
+description: 所沢さくら動物医療センター 採用サイトの構造・デザイン語彙・コーディングルール。ページ追加・セクション追加時に必ず参照すること。
+globs: src/**/*.astro, src/**/*.tsx, src/styles/**/*.css
+---
+
+# プロジェクトルール — 所沢さくら動物医療センター 採用サイト
+
+## サイト基本情報
+
+- サイト名: 所沢さくら動物医療センター 採用サイト
+- ドメイン: recruit.tsamc.jp
+- 事業内容: 埼玉県所沢市の動物病院の採用（リクルート）サイト
+- デザインTone: soft / pastel × luxury / refined — 親しみやすくも洗練された雰囲気
+- テーマカラー: #4a6086（スレートネイビー） / #f2a3b0（さくらピンク）
+
+## ページ構成
+
+| パス | ファイル | 概要 |
+|------|--------|------|
+| `/` | `src/pages/index.astro` | トップ（ヒーロー、理念、院長メッセージ、病院の特徴、スタッフ紹介、CTA） |
+| `/about` | `src/pages/about.astro` | 当院について（理念、病院概要、価値観） |
+| `/work` | `src/pages/work.astro` | 仕事内容（獣医師・看護師・トリマー） |
+| `/career` | `src/pages/career.astro` | 教育・キャリア（成長ステップのタイムライン） |
+| `/recruitment` | `src/pages/recruitment.astro` | 募集要項（職種別の雇用条件） |
+| `/form` | `src/pages/form.astro` | 見学申し込みフォーム |
+
+## デザイン語彙（必ず踏襲する）
+
+### CSS命名パターン（BEM系）
+- ページセクション: `p-hero`, `p-philosophy`, `p-director`, `p-feature`, `p-staff`, `p-cta`, `p-page-hero`, `p-page-body`
+- 下層ページ専用: `p-info-table`, `p-timeline`, `p-job-grid`, `p-job-card`, `p-recruit-list`, `p-recruit-card`, `p-form`
+- 共通コンポーネント: `c-btn`, `c-btn--navy`, `c-btn--pink`, `c-btn--ghost`, `c-section-heading`, `c-sakura`
+- ユーティリティ: `u-font-mincho`, `u-font-rounded`, `u-font-script`, `u-text-center`, `u-text-accent`, `u-text-navy`
+
+### ページ見出しの構造
+- **下層ページのページタイトル**: `.p-page-hero` 内に `.p-page-hero__en`（英語ラベル、italic script）+ `.p-page-hero__title`（日本語、`has-3-xl-font-size`）
+- **セクション見出し**: `<SectionHeading label="English Label" title="日本語タイトル" />`（`c-section-heading` コンポーネント）。ラベル前後に `—` のハイライン装飾が付く
+
+### 見出しフォントサイズ
+- ヒーロー H1: `has-4-xl-font-size`（2行で「動物にも、人にも、」「やさしい医療を。」）
+- ページタイトル (h1): `has-3-xl-font-size`
+- セクション見出し (h2): `has-2-xl-font-size`
+- カード見出し (h3): `has-l-font-size` 〜 `has-m-font-size`
+
+### セクション背景パターン
+- トップは単色に頼らず、各セクションで異なる背景を使用
+  - ヒーロー: `radial-gradient` + ドット装飾 + ぼかしサークル
+  - Philosophy: 純白（#fff）で特徴セクション（病院の特徴）と地続きのクリーンな見た目
+  - Director: 斜め方向の `linear-gradient(135deg, #fde8ec, #fdd6df, #e5d7ec)` + ::before/::afterの丸ぼかし
+  - Feature: 純白
+  - Staff: 薄いピンクグラデーション + レイヤード`radial-gradient` + 円形ドット・波線・三角形の幾何装飾
+  - CTA: カード状（紫系グラデーション + 動物シルエット）
+
+### data-gap の標準値
+- セクション内の大きな縦余白: `data-gap="5"` or `data-gap="6"`
+- カード・要素間: `data-gap="2"` or `data-gap="3"`
+- 小要素（見出しとリード等）: `data-gap="1"` or `data-gap="2"`
+
+### fade-in の使い方
+- セクション単位、カード単位で `class="fade-in"` を付与
+- 連続要素は `fade-in-delay-1` 〜 `fade-in-delay-5` でスタガー
+- `Layout.astro` の `<script>` 内 IntersectionObserver が `.is-visible` を付与
+
+### セクション装飾手法
+- 小さな円形ドット・丸装飾（`.p-hero__decor--circle-1/2/3`, `.p-staff__decor-dot--1`〜`--6`）
+- ピンク・ラベンダー系の `filter: blur()` + `radial-gradient` ぼかしオーブ
+- さくらモチーフ（`<SakuraIcon />` コンポーネント）は見出し・CTA・装飾に積極的に使用
+- セクション区切りはグラデーション背景の切り替え + ぼかしオーブの重なりで柔らかく
+- 装飾SVGで犬・猫シルエット（`.p-cta__decor--pets`）
+
+## カラートークン（`app.css` の `:root`）
+
+```css
+--color-bg: #fffafc;            /* ページ基本背景 */
+--color-bg-alt: #fdf2f5;        /* 交互背景（淡ピンク） */
+--color-bg-pink: #fbe4ea;       /* 濃いピンクバック */
+--color-surface: #ffffff;       /* カード表面 */
+--color-accent: #ef8ca1;        /* さくらピンク（メイン） */
+--color-accent-strong: #e06a85; /* ピンク強め（テキスト・ボタンhover） */
+--color-accent-soft: #fde8ec;   /* ピンクソフト（タグ・アイコン背景） */
+--color-navy: #4a6086;          /* ブランドネイビー */
+--color-navy-deep: #2f3f61;     /* 深ネイビー（見出し・本文） */
+--color-navy-soft: #e7ecf4;     /* ネイビーソフト */
+--color-text: #2f3f61;
+--color-text-muted: #8597b5;
+--color-border: rgba(74, 96, 134, 0.14);
+--color-border-pink: rgba(239, 140, 161, 0.3);
+```
+
+## フォント
+
+- 明朝: `--font-mincho` = Shippori Mincho, Noto Serif JP, ...
+- 丸ゴ: `--font-rounded` = Zen Maru Gothic, Hiragino Maru Gothic ProN, ...
+- 本文: `--font-sans` = Zen Kaku Gothic New, Hiragino Kaku Gothic ProN, ...
+- 英語アクセント: `--font-script` = Cormorant Garamond, Playfair Display（italic で使用）
+- Google Fonts は `Layout.astro` の `<head>` で読み込み済み
+
+## 共通コンポーネント
+
+- `<Layout title="..." description="..." />` — 全ページのラッパ（head, Header, Footer, IntersectionObserverスクリプト含む）
+- `<Header />` — ナビゲーション（ホーム・当院について・仕事内容・教育/キャリア・募集要項）+ 見学CTA + モバイルメニュー
+- `<Footer />` — 住所・電話・SNS・ナビリンク・コピーライト
+- `<SakuraIcon />` — さくらの花アイコン（SVG、5弁）。`currentColor` 継承
+- `<SectionHeading label="English" title="日本語" />` — セクション見出し
+- `<DecorDots />` — グリッド状ドットSVG装飾
+- `<MobileMenu />` (React) — モバイル用ドロワーナビ
+
+## コーディングルール要約
+
+- セクション構造: `<section class="p-xxx">` > 独自のコンテナ or `c-container` > コンテンツ
+- 文字サイズ: CSSでの `font-size` 記述は禁止。`has-*-font-size` + `data-layout="-fluid-typography"` を使う
+- 縦余白: `c-stack` + `data-gap="1"〜"7"` / 横並び: `c-grid c-grid_col2〜4`
+- アセット参照: `src/assets/img/` からは `import` で取り込み `Image` コンポーネントで描画、`public/` は `assetUrl()`
+- 禁止: インラインstyle（Reactコンポーネント内は例外 / Astroでも最小限に）、絵文字、`translateY` のホバー、`design-system.css` の編集
+- 明朝/丸ゴ/スクリプトの使い分け:
+  - 明朝: 署名など上品さが必要な箇所（`u-font-mincho`）
+  - 丸ゴ: 見出し全般・ボタン（`--font-rounded` / `u-font-rounded`）
+  - スクリプト: 英語小見出し・ラベル（italic, `--font-script`）
+- さくらモチーフを "多用" して良い — ブランドの核
+- ボタンは `c-btn c-btn--navy` / `c-btn c-btn--pink` / `c-btn c-btn--ghost` の3種。必ず `has-s-font-size` + `data-layout="-fluid-typography"` を付ける
+- ヘッダーのロゴは `<SakuraIcon />` + `所沢さくら動物医療センター` + 英語サブ `SAKURA ANIMAL HOSPITAL RECRUIT`

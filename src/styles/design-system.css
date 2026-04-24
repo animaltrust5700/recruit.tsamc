@@ -1,0 +1,2446 @@
+:root {
+  --caution-c: #ff1f54;
+  --caution-c-bg: #ffebf0;
+
+  --easing-a: cubic-bezier(0.77, 0, 0.18, 1);
+  --easing-b: cubic-bezier(0.19, 1, 0.22, 1);
+  --easing-c: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+  --radius-xl: 16px;
+  --radius-2-xl: 24px;
+
+  --blur-sm: 4px;
+  --blur-md: 8px;
+  --blur-lg: 16px;
+
+  --_font-size: 0;
+  --_base-font-size: 16;
+  --_harmonic-sequence-base: 8;
+  --_min-harmonic-sequence-base: 9;
+  --_max-harmonic-sequence-base: var(--_harmonic-sequence-base);
+  --_half-leading: 0.3;
+  --_font-family:
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic Medium", "Meiryo",
+    "Segoe UI", "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Android Emoji", "EmojiSymbols", sans-serif;
+  --_global--gap: var(--_s4);
+  --_global--text-gap: var(--_s3);
+  --_global--gutters: max(
+    min(6vw, var(--_rem4)),
+    env(safe-area-inset-right),
+    env(safe-area-inset-left)
+  );
+  --_ms0: 0;
+  --_ms1: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      1
+  );
+  --_ms2: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      2
+  );
+  --_ms3: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      3
+  );
+  --_ms4: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      5
+  );
+  --_ms5: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      8
+  );
+  --_ms6: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      13
+  );
+  --_ms7: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      21
+  );
+  --_ms8: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      34
+  );
+  --_ms9: calc(
+    calc(
+        (
+            clamp(
+              1.1,
+              calc(
+                  (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                    (var(--_harmonic-sequence-base) - 1)
+                ) *
+                var(
+                  --_fluid-font-size-magnification,
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_harmonic-sequence-base) - var(--_font-size))
+                  )
+                ) +
+                calc(
+                  calc(1 + 2 * var(--_half-leading)) + -1 *
+                    calc(
+                      (1.1 - (calc(1 + 2 * var(--_half-leading)))) /
+                        (var(--_harmonic-sequence-base) - 1)
+                    )
+                ),
+              calc(1 + 2 * var(--_half-leading))
+            )
+          ) /
+          3
+      ) *
+      55
+  );
+  --_em0: 0em;
+  --_em1: calc(1em * var(--_ms1));
+  --_em2: calc(1em * var(--_ms2));
+  --_em3: calc(1em * var(--_ms3));
+  --_em4: calc(1em * var(--_ms4));
+  --_em5: calc(1em * var(--_ms5));
+  --_em6: calc(1em * var(--_ms6));
+  --_em7: calc(1em * var(--_ms7));
+  --_em8: calc(1em * var(--_ms8));
+  --_em9: calc(1em * var(--_ms9));
+  --_rem0: 0rem;
+  --_rem1: calc(1rem * var(--_ms1));
+  --_rem2: calc(1rem * var(--_ms2));
+  --_rem3: calc(1rem * var(--_ms3));
+  --_rem4: calc(1rem * var(--_ms4));
+  --_rem5: calc(1rem * var(--_ms5));
+  --_rem6: calc(1rem * var(--_ms6));
+  --_rem7: calc(1rem * var(--_ms7));
+  --_rem8: calc(1rem * var(--_ms8));
+  --_rem9: calc(1rem * var(--_ms9));
+  --_s0: var(--_em0);
+  --_s1: var(--_em1);
+  --_s2: var(--_em2);
+  --_s3: var(--_em3);
+  --_s4: clamp(
+    calc(var(--_ms3) + var(--_ms4) * 0.28125) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms4) - calc(var(--_ms3) + var(--_ms4) * 0.28125)) / (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms4) * 0.28125)
+        ) *
+        1em +
+        calc(
+          (var(--_ms4) - calc(var(--_ms3) + var(--_ms4) * 0.28125)) / (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms4) * 1em
+  );
+  --_s5: clamp(
+    calc(var(--_ms3) + var(--_ms5) * 0.28125) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms5) - calc(var(--_ms3) + var(--_ms5) * 0.28125)) / (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms5) * 0.28125)
+        ) *
+        1em +
+        calc(
+          (var(--_ms5) - calc(var(--_ms3) + var(--_ms5) * 0.28125)) / (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms5) * 1em
+  );
+  --_s6: clamp(
+    calc(var(--_ms3) + var(--_ms6) * 0.28125) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms6) - calc(var(--_ms3) + var(--_ms6) * 0.28125)) / (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms6) * 0.28125)
+        ) *
+        1em +
+        calc(
+          (var(--_ms6) - calc(var(--_ms3) + var(--_ms6) * 0.28125)) / (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms6) * 1em
+  );
+  --_s7: clamp(
+    calc(var(--_ms3) + var(--_ms7) * 0.28125) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms7) - calc(var(--_ms3) + var(--_ms7) * 0.28125)) / (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms7) * 0.28125)
+        ) *
+        1em +
+        calc(
+          (var(--_ms7) - calc(var(--_ms3) + var(--_ms7) * 0.28125)) / (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms7) * 1em
+  );
+  --_s8: clamp(
+    calc(var(--_ms3) + var(--_ms8) * 0.28125) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms8) - calc(var(--_ms3) + var(--_ms8) * 0.28125)) / (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms8) * 0.28125)
+        ) *
+        1em +
+        calc(
+          (var(--_ms8) - calc(var(--_ms3) + var(--_ms8) * 0.28125)) / (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms8) * 1em
+  );
+  --_s9: clamp(
+    calc(var(--_ms3) + var(--_ms9) * 0.28125) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms9) - calc(var(--_ms3) + var(--_ms9) * 0.28125)) / (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms9) * 0.28125)
+        ) *
+        1em +
+        calc(
+          (var(--_ms9) - calc(var(--_ms3) + var(--_ms9) * 0.28125)) / (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms9) * 1em
+  );
+  --_p0: var(--_em0);
+  --_p1: var(--_em1);
+  --_p2: var(--_em2);
+  --_p3: var(--_em3);
+  --_p4: clamp(
+    calc(var(--_ms3) + var(--_ms4) * 0.28125 * 0.2) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms4) - calc(var(--_ms3) + var(--_ms4) * 0.28125 * 0.2)) /
+                (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms4) * 0.28125 * 0.2)
+        ) *
+        1em +
+        calc(
+          (var(--_ms4) - calc(var(--_ms3) + var(--_ms4) * 0.28125 * 0.2)) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms4) * 1em
+  );
+  --_p5: clamp(
+    calc(var(--_ms3) + var(--_ms5) * 0.28125 * 0.2) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms5) - calc(var(--_ms3) + var(--_ms5) * 0.28125 * 0.2)) /
+                (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms5) * 0.28125 * 0.2)
+        ) *
+        1em +
+        calc(
+          (var(--_ms5) - calc(var(--_ms3) + var(--_ms5) * 0.28125 * 0.2)) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms5) * 1em
+  );
+  --_p6: clamp(
+    calc(var(--_ms3) + var(--_ms6) * 0.28125 * 0.2) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms6) - calc(var(--_ms3) + var(--_ms6) * 0.28125 * 0.2)) /
+                (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms6) * 0.28125 * 0.2)
+        ) *
+        1em +
+        calc(
+          (var(--_ms6) - calc(var(--_ms3) + var(--_ms6) * 0.28125 * 0.2)) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms6) * 1em
+  );
+  --_p7: clamp(
+    calc(var(--_ms3) + var(--_ms7) * 0.28125 * 0.2) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms7) - calc(var(--_ms3) + var(--_ms7) * 0.28125 * 0.2)) /
+                (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms7) * 0.28125 * 0.2)
+        ) *
+        1em +
+        calc(
+          (var(--_ms7) - calc(var(--_ms3) + var(--_ms7) * 0.28125 * 0.2)) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms7) * 1em
+  );
+  --_p8: clamp(
+    calc(var(--_ms3) + var(--_ms8) * 0.28125 * 0.2) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms8) - calc(var(--_ms3) + var(--_ms8) * 0.28125 * 0.2)) /
+                (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms8) * 0.28125 * 0.2)
+        ) *
+        1em +
+        calc(
+          (var(--_ms8) - calc(var(--_ms3) + var(--_ms8) * 0.28125 * 0.2)) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms8) * 1em
+  );
+  --_p9: clamp(
+    calc(var(--_ms3) + var(--_ms9) * 0.28125 * 0.2) * 1em,
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (var(--_ms9) - calc(var(--_ms3) + var(--_ms9) * 0.28125 * 0.2)) /
+                (57.5)
+            ) +
+            calc(var(--_ms3) + var(--_ms9) * 0.28125 * 0.2)
+        ) *
+        1em +
+        calc(
+          (var(--_ms9) - calc(var(--_ms3) + var(--_ms9) * 0.28125 * 0.2)) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    var(--_ms9) * 1em
+  );
+  --_container-max-width: 1840px;
+  --_grid-gap: var(--_global--gap);
+  --_pg-base: calc(
+    (100% - var(--_grid-gap) * (var(--_grid-columns) - 1)) /
+      var(--_grid-columns)
+  );
+  --_pg0: 0%;
+  --_pg1: calc(var(--_pg-base) * 1 + var(--_grid-gap) * 0);
+  --_pg2: calc(var(--_pg-base) * 2 + var(--_grid-gap) * 1);
+  --_pg3: calc(var(--_pg-base) * 3 + var(--_grid-gap) * 2);
+  --_pg4: calc(var(--_pg-base) * 4 + var(--_grid-gap) * 3);
+  --_pg5: calc(var(--_pg-base) * 5 + var(--_grid-gap) * 4);
+  --_pg6: calc(var(--_pg-base) * 6 + var(--_grid-gap) * 5);
+  --_pg7: calc(var(--_pg-base) * 7 + var(--_grid-gap) * 6);
+  --_pg8: calc(var(--_pg-base) * 8 + var(--_grid-gap) * 7);
+  --_pg9: calc(var(--_pg-base) * 9 + var(--_grid-gap) * 8);
+  --_pg10: calc(var(--_pg-base) * 10 + var(--_grid-gap) * 9);
+  --_pg11: calc(var(--_pg-base) * 11 + var(--_grid-gap) * 10);
+  --_pg12: calc(var(--_pg-base) * 12 + var(--_grid-gap) * 11);
+  --_cg-base: calc(
+    (
+        var(--_container-max-width) - var(--_grid-gap) *
+          (var(--_grid-columns) - 1)
+      ) /
+      var(--_grid-columns)
+  );
+  --_cg0: 0%;
+  --_cg1: calc(var(--_cg-base) * 1 + var(--_grid-gap) * 0);
+  --_cg2: calc(var(--_cg-base) * 2 + var(--_grid-gap) * 1);
+  --_cg3: calc(var(--_cg-base) * 3 + var(--_grid-gap) * 2);
+  --_cg4: calc(var(--_cg-base) * 4 + var(--_grid-gap) * 3);
+  --_cg5: calc(var(--_cg-base) * 5 + var(--_grid-gap) * 4);
+  --_cg6: calc(var(--_cg-base) * 6 + var(--_grid-gap) * 5);
+  --_cg7: calc(var(--_cg-base) * 7 + var(--_grid-gap) * 6);
+  --_cg8: calc(var(--_cg-base) * 8 + var(--_grid-gap) * 7);
+  --_cg9: calc(var(--_cg-base) * 9 + var(--_grid-gap) * 8);
+  --_cg10: calc(var(--_cg-base) * 10 + var(--_grid-gap) * 9);
+  --_cg11: calc(var(--_cg-base) * 11 + var(--_grid-gap) * 10);
+  --_cg12: calc(var(--_cg-base) * 12 + var(--_grid-gap) * 11);
+
+  --_gutters: max(
+    min(6vw, var(--_rem4)),
+    env(safe-area-inset-right),
+    env(safe-area-inset-left)
+  );
+}
+
+* {
+  --_font-size: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--_font-size-level)) * 1rem
+  );
+  --_line-height: clamp(
+    1.1,
+    calc(
+      var(--_line-height-slope) * var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--_font-size-level)) + 1 +
+        var(--_half-leading) * 2 + var(--_line-height-slope) * -1
+    ),
+    calc(var(--_half-leading) * 2 + 1)
+  );
+  --_fluid-font-size: clamp(
+    1rem *
+      calc(
+        var(--_min-harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--_font-size-level))
+      ),
+    calc(
+      (
+          var(--_max-harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--_font-size-level)) /
+            57.5 * -22.5 - var(--_min-harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--_font-size-level)) /
+            57.5 * -22.5 + var(--_min-harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--_font-size-level))
+        ) *
+        1rem +
+        (
+          var(--_max-harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--_font-size-level)) /
+            57.5 - var(--_min-harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--_font-size-level)) /
+            57.5
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_max-harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--_font-size-level))
+      )
+  );
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   Variable Typography
+   ===================================================== */
+.has-4-xs-font-size {
+  --font-size: -5 !important;
+  --preset--font-size--4-xs: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--4-xs) !important;
+}
+.has-4-xs-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--4-xs: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-3-xs-font-size {
+  --font-size: -4 !important;
+  --preset--font-size--3-xs: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--3-xs) !important;
+}
+.has-3-xs-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--3-xs: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-2-xs-font-size {
+  --font-size: -3 !important;
+  --preset--font-size--2-xs: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--2-xs) !important;
+}
+.has-2-xs-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--2-xs: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-xs-font-size {
+  --font-size: -2 !important;
+  --preset--font-size--xs: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--xs) !important;
+}
+.has-xs-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--xs: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-s-font-size {
+  --font-size: -1 !important;
+  --preset--font-size--s: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--s) !important;
+}
+.has-s-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--s: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-m-font-size {
+  --font-size: 0 !important;
+  --preset--font-size--m: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--m) !important;
+}
+.has-m-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--m: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-l-font-size {
+  --font-size: 1 !important;
+  --preset--font-size--l: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--l) !important;
+}
+.has-l-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--l: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-xl-font-size {
+  --font-size: 2 !important;
+  --preset--font-size--xl: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--xl) !important;
+}
+.has-xl-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--xl: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-2-xl-font-size {
+  --font-size: 3 !important;
+  --preset--font-size--2-xl: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--2-xl) !important;
+}
+.has-2-xl-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--2-xl: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-3-xl-font-size {
+  --font-size: 4 !important;
+  --preset--font-size--3-xl: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--3-xl) !important;
+}
+.has-3-xl-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--3-xl: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-4-xl-font-size {
+  --font-size: 5 !important;
+  --preset--font-size--4-xl: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--4-xl) !important;
+}
+.has-4-xl-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--4-xl: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-5-xl-font-size {
+  --font-size: 6 !important;
+  --preset--font-size--5-xl: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--5-xl) !important;
+}
+.has-5-xl-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--5-xl: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+.has-6-xl-font-size {
+  --font-size: 7 !important;
+  --preset--font-size--6-xl: calc(
+    var(--_harmonic-sequence-base) /
+      (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+  );
+  font-size: var(--preset--font-size--6-xl) !important;
+}
+.has-6-xl-font-size[data-layout~="-fluid-typography"] {
+  --preset--font-size--6-xl: clamp(
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_min-harmonic-sequence-base) - var(--font-size))
+      ),
+    calc(
+      calc(
+          -22.5 *
+            calc(
+              (
+                  calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_max-harmonic-sequence-base) - var(--font-size))
+                    ) -
+                    calc(
+                      var(--_harmonic-sequence-base) /
+                        (var(--_min-harmonic-sequence-base) - var(--font-size))
+                    )
+                ) /
+                (57.5)
+            ) +
+            calc(
+              var(--_harmonic-sequence-base) /
+                (var(--_min-harmonic-sequence-base) - var(--font-size))
+            )
+        ) *
+        1rem +
+        calc(
+          (
+              calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_max-harmonic-sequence-base) - var(--font-size))
+                ) -
+                calc(
+                  var(--_harmonic-sequence-base) /
+                    (var(--_min-harmonic-sequence-base) - var(--font-size))
+                )
+            ) /
+            (57.5)
+        ) *
+        100vw
+    ),
+    1rem *
+      calc(
+        var(--_harmonic-sequence-base) /
+          (var(--_max-harmonic-sequence-base) - var(--font-size))
+      )
+  ) !important;
+}
+
+/* =====================================================
+   Variable Typography (Mobile Overwrite)
+   ===================================================== */
+@media (max-width: 639px) {
+  .has-4-xs-font-size__mobile {
+    --font-size: -5 !important;
+    --preset--font-size--4-xs: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--4-xs) !important;
+  }
+  .has-4-xs-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--4-xs: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-3-xs-font-size__mobile {
+    --font-size: -4 !important;
+    --preset--font-size--3-xs: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--3-xs) !important;
+  }
+  .has-3-xs-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--3-xs: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-2-xs-font-size__mobile {
+    --font-size: -3 !important;
+    --preset--font-size--2-xs: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--2-xs) !important;
+  }
+  .has-2-xs-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--2-xs: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-xs-font-size__mobile {
+    --font-size: -2 !important;
+    --preset--font-size--xs: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--xs) !important;
+  }
+  .has-xs-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--xs: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-s-font-size__mobile {
+    --font-size: -1 !important;
+    --preset--font-size--s: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--s) !important;
+  }
+  .has-s-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--s: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-m-font-size__mobile {
+    --font-size: 0 !important;
+    --preset--font-size--m: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--m) !important;
+  }
+  .has-m-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--m: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-l-font-size__mobile {
+    --font-size: 1 !important;
+    --preset--font-size--l: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--l) !important;
+  }
+  .has-l-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--l: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-xl-font-size__mobile {
+    --font-size: 2 !important;
+    --preset--font-size--xl: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--xl) !important;
+  }
+  .has-xl-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--xl: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-2-xl-font-size__mobile {
+    --font-size: 3 !important;
+    --preset--font-size--2-xl: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--2-xl) !important;
+  }
+  .has-2-xl-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--2-xl: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-3-xl-font-size__mobile {
+    --font-size: 4 !important;
+    --preset--font-size--3-xl: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--3-xl) !important;
+  }
+  .has-3-xl-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--3-xl: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-4-xl-font-size__mobile {
+    --font-size: 5 !important;
+    --preset--font-size--4-xl: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--4-xl) !important;
+  }
+  .has-4-xl-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--4-xl: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-5-xl-font-size__mobile {
+    --font-size: 6 !important;
+    --preset--font-size--5-xl: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--5-xl) !important;
+  }
+  .has-5-xl-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--5-xl: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+  .has-6-xl-font-size__mobile {
+    --font-size: 7 !important;
+    --preset--font-size--6-xl: calc(
+      var(--_harmonic-sequence-base) /
+        (var(--_harmonic-sequence-base) - var(--font-size)) * 1rem
+    );
+    font-size: var(--preset--font-size--6-xl) !important;
+  }
+  .has-6-xl-font-size__mobile[data-layout~="-fluid-typography"] {
+    --preset--font-size--6-xl: clamp(
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_min-harmonic-sequence-base) - var(--font-size))
+        ),
+      calc(
+        calc(
+            -22.5 *
+              calc(
+                (
+                    calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_max-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      ) -
+                      calc(
+                        var(--_harmonic-sequence-base) /
+                          (
+                            var(--_min-harmonic-sequence-base) -
+                              var(--font-size)
+                          )
+                      )
+                  ) /
+                  (57.5)
+              ) +
+              calc(
+                var(--_harmonic-sequence-base) /
+                  (var(--_min-harmonic-sequence-base) - var(--font-size))
+              )
+          ) *
+          1rem +
+          calc(
+            (
+                calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_max-harmonic-sequence-base) - var(--font-size))
+                  ) -
+                  calc(
+                    var(--_harmonic-sequence-base) /
+                      (var(--_min-harmonic-sequence-base) - var(--font-size))
+                  )
+              ) /
+              (57.5)
+          ) *
+          100vw
+      ),
+      1rem *
+        calc(
+          var(--_harmonic-sequence-base) /
+            (var(--_max-harmonic-sequence-base) - var(--font-size))
+        )
+    ) !important;
+  }
+}
+
+/* =====================================================
+  Generic Layout
+  ===================================================== */
+.l-page-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.l-page-layout main {
+  flex-grow: 1;
+}
+
+.c-section {
+  position: relative;
+  padding: var(--_s6) 0;
+  width: 100%;
+}
+
+/* .c-container {
+  width: min(100% - var(--_gutters) * 2, var(--_container-max-width));
+  max-width: 100%;
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--_gutters);
+  padding-right: var(--_gutters);
+} */
+
+.c-container {
+  /* width: min(100% - var(--_gutters) * 2, var(--content-max-width)); */
+  /* box-sizing: content-box; */
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--_gutters);
+}
+
+.l-content-container {
+  width: 100%;
+  max-width: var(--page-content-max-width);
+  margin-inline: auto;
+}
+
+/* =====================================================
+  Generic Stack (c-stack)
+  ===================================================== */
+.c-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_c-stack-gap, var(--_s3));
+}
+
+.c-stack[data-gap="0"] {
+  --_c-stack-gap: var(--_s0);
+}
+.c-stack[data-gap="1"] {
+  --_c-stack-gap: var(--_s1);
+}
+.c-stack[data-gap="2"] {
+  --_c-stack-gap: var(--_s2);
+}
+.c-stack[data-gap="3"] {
+  --_c-stack-gap: var(--_s3);
+}
+.c-stack[data-gap="4"] {
+  --_c-stack-gap: var(--_s4);
+}
+.c-stack[data-gap="5"] {
+  --_c-stack-gap: var(--_s5);
+}
+.c-stack[data-gap="6"] {
+  --_c-stack-gap: var(--_s6);
+}
+.c-stack[data-gap="7"] {
+  --_c-stack-gap: var(--_s7);
+}
+.c-stack[data-gap="8"] {
+  --_c-stack-gap: var(--_s8);
+}
+.c-stack[data-gap="9"] {
+  --_c-stack-gap: var(--_s9);
+}
+
+/* =====================================================
+  Generic Grid (c-grid)
+  ===================================================== */
+.c-grid {
+  display: grid;
+  gap: var(--_c-grid-gap, var(--_s3));
+  align-items: start;
+}
+
+.c-grid[data-gap="0"] {
+  --_c-grid-gap: var(--_s0);
+}
+.c-grid[data-gap="1"] {
+  --_c-grid-gap: var(--_s1);
+}
+.c-grid[data-gap="2"] {
+  --_c-grid-gap: var(--_s2);
+}
+.c-grid[data-gap="3"] {
+  --_c-grid-gap: var(--_s3);
+}
+.c-grid[data-gap="4"] {
+  --_c-grid-gap: var(--_s4);
+}
+.c-grid[data-gap="5"] {
+  --_c-grid-gap: var(--_s5);
+}
+.c-grid[data-gap="6"] {
+  --_c-grid-gap: var(--_s6);
+}
+.c-grid[data-gap="7"] {
+  --_c-grid-gap: var(--_s7);
+}
+.c-grid[data-gap="8"] {
+  --_c-grid-gap: var(--_s8);
+}
+.c-grid[data-gap="9"] {
+  --_c-grid-gap: var(--_s9);
+}
+
+.c-grid_col2 {
+  grid-template-columns: 1fr 1fr;
+}
+.c-grid_col3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.c-grid_col4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1023px) {
+  .c-grid_col4 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .c-grid_col3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .c-grid_col4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .c-grid_col2 {
+    grid-template-columns: 1fr;
+  }
+  .c-grid_col3 {
+    grid-template-columns: 1fr;
+  }
+  .c-grid_col4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 640px) {
+  .c-responsive-container {
+    padding-left: var(--_s3);
+  }
+}

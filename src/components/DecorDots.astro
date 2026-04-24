@@ -1,0 +1,29 @@
+---
+interface Props {
+  readonly class?: string;
+  readonly width?: string | number;
+  readonly rows?: number;
+  readonly cols?: number;
+}
+
+const { class: className, width, rows = 5, cols = 5 } = Astro.props;
+
+const dots: readonly { cx: number; cy: number }[] = Array.from({ length: rows * cols }).map(
+  (_, index) => {
+    const r = Math.floor(index / cols);
+    const c = index % cols;
+    return { cx: c * 16 + 8, cy: r * 16 + 8 };
+  },
+);
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`0 0 ${cols * 16} ${rows * 16}`}
+  fill="currentColor"
+  aria-hidden="true"
+  class={className}
+  width={width}
+>
+  {dots.map((d) => <circle cx={d.cx} cy={d.cy} r="2.4" />)}
+</svg>

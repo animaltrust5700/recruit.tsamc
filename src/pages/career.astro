@@ -1,0 +1,105 @@
+---
+import Layout from '../components/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+interface Step {
+  readonly year: string;
+  readonly title: string;
+  readonly body: string;
+}
+
+const steps: readonly Step[] = [
+  {
+    year: '1st Year',
+    title: '基礎を身につける',
+    body: '先輩スタッフのサポートのもと、院内のルール・診療補助・接遇の基本を学びます。毎月の勉強会で知識を積み重ねます。',
+  },
+  {
+    year: '2nd Year',
+    title: '実践力を伸ばす',
+    body: '担当業務を増やし、採血補助・入院動物のケアなど専門的な業務に挑戦。外部セミナーへの参加もサポートします。',
+  },
+  {
+    year: '3rd Year',
+    title: '得意分野を深める',
+    body: '歯科・内視鏡・エコー・行動診療など、興味のある分野の研修へ参加。専門スキルを磨いていきます。',
+  },
+  {
+    year: '4th Year〜',
+    title: 'チームを支える',
+    body: '新人指導やマニュアル整備など、チームの成長に貢献しながら、自身の専門性をさらに高めていきます。',
+  },
+];
+
+interface Support {
+  readonly title: string;
+  readonly body: string;
+}
+
+const supports: readonly Support[] = [
+  { title: '院内勉強会（月1回）', body: '症例検討・論文紹介・新しい治療法の学習を全員で行っています。' },
+  { title: '外部セミナー費用補助', body: '興味のある分野のセミナー参加費用を補助。スキルアップを支援します。' },
+  { title: '資格取得支援', body: '愛玩動物看護師の資格取得など、キャリアに役立つ資格の取得を支援。' },
+  { title: 'メンター制度', body: '入職後は先輩スタッフが一対一でサポート。安心して業務に取り組めます。' },
+];
+---
+
+<Layout title="教育・キャリア" description="所沢さくら動物医療センターの教育制度とキャリアステップをご紹介します。">
+  <section class="p-page-hero">
+    <div class="p-page-hero__inner">
+      <span class="p-page-hero__en has-xs-font-size" data-layout="-fluid-typography">Career</span>
+      <h1 class="p-page-hero__title has-3-xl-font-size" data-layout="-fluid-typography">
+        教育・キャリア
+      </h1>
+    </div>
+  </section>
+
+  <section class="p-page-body">
+    <div class="p-page-body__container">
+      <div class="c-stack" data-gap="6">
+        <div class="c-stack fade-in" data-gap="3">
+          <SectionHeading label="Career Path" title="成長のステップ" />
+          <p class="u-text-center has-xs-font-size" data-layout="-fluid-typography">
+            入職からの成長イメージをご紹介します。<br />
+            一人ひとりのペースに合わせた育成で、着実にスキルを身につけていただけます。
+          </p>
+          <div class="p-timeline">
+            {
+              steps.map((s, i) => (
+                <div class={`p-timeline__item fade-in fade-in-delay-${(i % 4) + 1}`}>
+                  <div class="p-timeline__year has-xs-font-size" data-layout="-fluid-typography">
+                    {s.year}
+                  </div>
+                  <h3 class="p-timeline__title has-l-font-size" data-layout="-fluid-typography">
+                    {s.title}
+                  </h3>
+                  <p class="p-timeline__body has-xs-font-size" data-layout="-fluid-typography">
+                    {s.body}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="c-stack fade-in" data-gap="3">
+          <SectionHeading label="Support" title="学びを支えるサポート" />
+          <div class="c-grid c-grid_col2" data-gap="3">
+            {
+              supports.map((s) => (
+                <div class="p-philosophy__card" style="text-align:left; align-items:flex-start;">
+                  <h3 class="p-philosophy__card-title has-m-font-size" data-layout="-fluid-typography">
+                    {s.title}
+                  </h3>
+                  <p class="p-philosophy__card-body has-2-xs-font-size" data-layout="-fluid-typography">
+                    {s.body}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

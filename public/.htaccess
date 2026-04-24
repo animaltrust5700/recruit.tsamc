@@ -1,0 +1,127 @@
+# =====================================================
+#  所沢さくら動物医療センター 採用サイト (recruit.tsamc.jp)
+#  さくらインターネット用 .htaccess
+# =====================================================
+
+# ------------------------------------------------------
+#  ディレクトリ索引 / Basic 認証
+# ------------------------------------------------------
+DirectoryIndex index.html index.htm index.shtml index.php index.cgi
+Options -Indexes
+AuthUserFile /home/web7100/www/.htpasswd
+AuthType Basic
+AuthName "Web access"
+Require valid-user
+Satisfy all
+Order deny,allow
+
+# ------------------------------------------------------
+#  HTTPS リダイレクト
+# ------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # さくらインターネットでの HTTPS 判定
+  RewriteCond %{ENV:HTTPS} !^on$
+  RewriteCond %{HTTP:X-Sakura-Forwarded-For} ^$
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # 正規ホストへリダイレクト（www 付きサブドメイン → recruit.tsamc.jp）
+  RewriteCond %{HTTP_HOST} ^www\.recruit\.tsamc\.jp$ [NC]
+  RewriteRule ^(.*)$ https://recruit.tsamc.jp/$1 [R=301,L]
+
+  # 末尾スラッシュの正規化（ファイルでない場合のみ）
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+  # /path/ → /path/index.html へ内部リライト
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}index.html -f
+  RewriteRule ^(.*)$ $1index.html [L]
+</IfModule>
+
+# ------------------------------------------------------
+#  GZIP 圧縮
+# ------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/atom+xml
+</IfModule>
+
+# ------------------------------------------------------
+#  キャッシュ制御
+# ------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+
+  # HTML はキャッシュ短め
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # CSS / JS
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  # 画像
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # フォント
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+
+  # XML / JSON
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType application/json "access plus 1 hour"
+</IfModule>
+
+# Cache-Control ヘッダー（HTML のみ no-cache）
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------
+#  セキュリティヘッダー
+# ------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# ------------------------------------------------------
+#  エラーページ
+# ------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# ------------------------------------------------------
+#  不要ファイルへのアクセス拒否
+# ------------------------------------------------------
+<FilesMatch "\.(env|md|mdc|gitignore|json)$">
+  Require all denied
+</FilesMatch>
