@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  readonly title: string;
+  readonly enLabel: string;
+  readonly description?: string;
+}
+
+const { title, enLabel, description = 'このページは準備中です。' } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <section class="p-page-hero">
+    <div class="p-page-hero__inner">
+      <span class="p-page-hero__en has-xs-font-size" data-layout="-fluid-typography">
+        {enLabel}
+      </span>
+      <h1 class="p-page-hero__title has-3-xl-font-size" data-layout="-fluid-typography">
+        {title}
+      </h1>
+    </div>
+  </section>
+
+  <section class="p-page-body">
+    <div class="p-page-body__container">
+      <div class="c-stack u-text-center fade-in" data-gap="4">
+        <p class="has-2-xl-font-size u-font-rounded" data-layout="-fluid-typography">
+          準備中
+        </p>
+        <p class="has-xs-font-size u-text-muted" data-layout="-fluid-typography">
+          公開までしばらくお待ちください。
+        </p>
+        <div>
+          <a class="c-btn c-btn--ghost has-s-font-size" data-layout="-fluid-typography" href="/">
+            <span>トップへ戻る</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -74,7 +74,7 @@ WPGRAPHQL_ENDPOINT=https://wp.example.com/graphql
 | `SSH_PRIVATE_KEY` | さくらインターネットへ SSH 接続するための秘密鍵（全文） | `-----BEGIN OPENSSH PRIVATE KEY-----` から `-----END OPENSSH PRIVATE KEY-----` まで |
 | `SSH_HOST` | さくらインターネットの SSH ホスト名 | `web7100.sakura.ne.jp` |
 | `SSH_USERNAME` | SSH 接続時のユーザー名 | `web7100` |
-| `SSH_TARGET_DIR` | デプロイ先のリモートディレクトリ（絶対パス） | `/home/web7100/www/recruit.tsamc/dist` |
+| `SSH_TARGET_DIR` | デプロイ先のリモートディレクトリ（絶対パス） | `/home/web7100/www/recruit.tsamc/dist` ( `/home/web7100/www/recruit.tsamc/dev` ) |
 
 ### 2.3 Variables の設定
 

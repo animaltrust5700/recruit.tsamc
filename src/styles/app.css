@@ -1012,8 +1012,12 @@ body.is-mobile-menu-open .p-header {
   }
 
   .p-hero__media::after {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 75%, #fff 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 75%,
+      #fff 100%
+    );
   }
 
   .p-hero__media-img {
