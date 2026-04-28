@@ -1,14 +1,14 @@
 ---
-import BrandSakuraMark from './BrandSakuraMark.astro';
 import { MobileMenu } from './MobileMenu.tsx';
-import { assetUrl } from '../lib/assets';
+import { assetUrl, routeUrl, stripBasePath } from '../lib/assets';
 
 interface NavItem {
   readonly href: string;
   readonly label: string;
+  readonly isCurrent?: boolean;
 }
 
-const navItems: readonly NavItem[] = [
+const navItemsSource: readonly NavItem[] = [
   { href: '/', label: 'ホーム' },
   { href: '/about', label: '当院について' },
   { href: '/work', label: '仕事内容' },
@@ -16,12 +16,18 @@ const navItems: readonly NavItem[] = [
   { href: '/recruitment', label: '募集要項' },
 ];
 
-const currentPath = Astro.url.pathname;
+const normalizeRoutePath = (path: string): string => path.replace(/\/+$/, '') || '/';
+const currentPath = normalizeRoutePath(stripBasePath(Astro.url.pathname));
+const navItems = navItemsSource.map((item) => ({
+  ...item,
+  href: routeUrl(item.href),
+  isCurrent: currentPath === item.href,
+}));
 ---
 
 <header class="p-header">
   <div class="p-header__inner">
-    <a href="/" class="p-header__logo" aria-label="所沢さくら動物医療センター 採用サイト">
+    <a href={routeUrl('/')} class="p-header__logo" aria-label="所沢さくら動物医療センター 採用サイト">
       <img
         class="p-header__logo-img"
         src={assetUrl('/logo-horizontal.svg')}
@@ -40,7 +46,7 @@ const currentPath = Astro.url.pathname;
                 class:list={[
                   'p-header__nav-link',
                   'has-xs-font-size',
-                  { 'is-current': currentPath === item.href },
+                  { 'is-current': item.isCurrent },
                 ]}
                 data-layout="-fluid-typography"
                 href={item.href}
@@ -54,7 +60,7 @@ const currentPath = Astro.url.pathname;
       <a
         class="c-btn c-btn--pink p-header__cta has-xs-font-size"
         data-layout="-fluid-typography"
-        href="/form"
+        href={routeUrl('/form')}
         title="見学を申し込む"
       >
         <span class="p-header__cta-txt p-header__cta-txt--full">見学を申し込む</span>
@@ -63,7 +69,7 @@ const currentPath = Astro.url.pathname;
       <MobileMenu
         client:load
         items={navItems}
-        ctaHref="/form"
+        ctaHref={routeUrl('/form')}
         ctaLabel="見学を申し込む"
       />
     </nav>

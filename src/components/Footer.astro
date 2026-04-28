@@ -1,5 +1,5 @@
 ---
-import { assetUrl } from '../lib/assets';
+import { assetUrl, routeUrl } from '../lib/assets';
 
 const instagramUrl = 'https://www.instagram.com/tokorozawa.sakura.amc/';
 ---
@@ -7,7 +7,7 @@ const instagramUrl = 'https://www.instagram.com/tokorozawa.sakura.amc/';
 <footer class="p-footer">
   <div class="p-footer__inner">
     <div class="p-footer__brand">
-      <a href="/" class="p-footer__logo" aria-label="所沢さくら動物医療センター 採用サイト">
+      <a href={routeUrl('/')} class="p-footer__logo" aria-label="所沢さくら動物医療センター 採用サイト">
         <img
           class="p-footer__logo-img"
           src={assetUrl('/logo-horizontal.svg')}

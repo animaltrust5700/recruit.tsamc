@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { routeUrl } from '../lib/assets';
 
 interface Props {
   readonly title: string;
@@ -32,7 +33,7 @@ const { title, enLabel, description = 'このページは準備中です。' } =
           公開までしばらくお待ちください。
         </p>
         <div>
-          <a class="c-btn c-btn--ghost has-s-font-size" data-layout="-fluid-typography" href="/">
+          <a class="c-btn c-btn--ghost has-s-font-size" data-layout="-fluid-typography" href={routeUrl('/')}>
             <span>トップへ戻る</span>
           </a>
         </div>

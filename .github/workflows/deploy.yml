@@ -35,6 +35,7 @@ jobs:
 
       - name: Build site
         env:
+          SSH_TARGET_DIR: ${{ secrets.SSH_TARGET_DIR }}
           WPGRAPHQL_ENDPOINT: ${{ vars.WPGRAPHQL_ENDPOINT }}
           PUBLIC_BUILD_ID: ${{ github.sha }}
         run: npm run build

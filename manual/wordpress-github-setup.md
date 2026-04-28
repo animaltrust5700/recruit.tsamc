@@ -76,6 +76,8 @@ WPGRAPHQL_ENDPOINT=https://wp.example.com/graphql
 | `SSH_USERNAME` | SSH 接続時のユーザー名 | `web7100` |
 | `SSH_TARGET_DIR` | デプロイ先のリモートディレクトリ（絶対パス） | `/home/web7100/www/recruit.tsamc/dist` ( `/home/web7100/www/recruit.tsamc/dev` ) |
 
+`SSH_TARGET_DIR` が `/home/web7100/www/recruit.tsamc/dev` の場合、ビルド時の公開URLは `https://web7100.sakura.ne.jp/recruit.tsamc/dev/` として扱われる。通常公開先の `/home/web7100/www/recruit.tsamc/dist` では `https://www.recruit.tsamc.jp/` としてビルドされる。
+
 ### 2.3 Variables の設定
 
 リポジトリ > Settings > Secrets and variables > Actions > Variables で以下を追加する。
